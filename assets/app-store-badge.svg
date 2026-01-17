@@ -1,0 +1,13 @@
+<!-- Placeholder App Store Badge -->
+<svg width="140" height="50" viewBox="0 0 140 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="140" height="50" rx="8" fill="#000000"/>
+    <rect x="1" y="1" width="138" height="48" rx="7" stroke="#D1D1D1" stroke-width="0.5"/>
+    
+    <!-- Apple Logo -->
+    <path d="M24.769 17.045c-.137-2.086 1.708-3.087 1.784-3.132-1.001-1.45-2.565-1.645-3.089-1.663-1.281-.14-2.558.765-3.22.765-.683 0-1.708-.744-2.827-.723-1.421.022-2.784.84-3.463 2.087-1.513 2.59-.39 6.379.982 8.465.697.999 1.501 2.128 2.565 2.086 1.076-.044 1.465-.682 2.76-.682 1.273 0 1.618.682 2.716.658 1.126-.021 1.803-1.001 2.456-2.021.774-1.12 1.085-2.195 1.107-2.25-.024-.002-2.107-.798-2.127-3.19z" fill="white"/>
+    <path d="M21.88 13.5c.56-.697.963-1.64.834-2.61-.857.044-1.924.597-2.52 1.295-.527.618-.97 1.618-.826 2.544.937.065 1.88-.485 2.511-1.229z" fill="white"/>
+    
+    <!-- Text -->
+    <text x="36" y="18" font-family="Helvetica, Arial, sans-serif" font-size="8" font-weight="300" fill="white">Download on the</text>
+    <text x="36" y="32" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="white">App Store</text>
+</svg>
