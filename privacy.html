@@ -17,6 +17,41 @@
             color: #ffffff;
             line-height: 1.6;
         }
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 16px 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-1px);
+        }
         .legal-container {
             max-width: 900px;
             margin: 0 auto;
@@ -76,6 +111,12 @@
     </style>
 </head>
 <body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">← Home</a>
+            <a href="terms.html" class="nav-link">Terms of Service</a>
+        </div>
+    </nav>
     <div class="legal-container">
         <div class="legal-header">
             <h1>Privacy Policy</h1>
