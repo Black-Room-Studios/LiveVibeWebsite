@@ -22,30 +22,104 @@
             align-items: center;
             min-height: 100vh;
             padding: 40px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        body.light-mode {
+            background: #ffffff;
+            color: #0a0a0a;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .theme-toggle:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: scale(1.1);
+        }
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
+            transition: opacity 0.3s ease;
+        }
+        body.light-mode .theme-toggle svg {
+            fill: #0a0a0a;
+        }
+        .sun-icon {
+            display: none;
+        }
+        .moon-icon {
+            display: block;
+        }
+        body.light-mode .sun-icon {
+            display: block;
+        }
+        body.light-mode .moon-icon {
+            display: none;
         }
         .container {
-            max-width: 600px;
+            max-width: 1200px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+        .content-section {
+            max-width: 600px;
         }
         .logo {
             width: 120px;
             height: 120px;
             margin: 0 auto 32px;
             border-radius: 24px;
+            transition: opacity 0.3s ease, box-shadow 0.3s ease;
+        }
+        body.light-mode .logo {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .logo-dark {
+            display: block;
+        }
+        .logo-light {
+            display: none;
+        }
+        body.light-mode .logo-dark {
+            display: none;
+        }
+        body.light-mode .logo-light {
+            display: block;
         }
         h1 {
             font-size: 48px;
             font-weight: 800;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        body.light-mode h1 {
+            color: #1a1a1a;
         }
         p {
             font-size: 18px;
             opacity: 0.7;
             margin-bottom: 48px;
+        }
+        body.light-mode p {
+            opacity: 0.6;
         }
         .links {
             display: flex;
@@ -55,8 +129,8 @@
         a {
             display: block;
             padding: 20px 32px;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             border-radius: 12px;
             color: #ffffff;
             text-decoration: none;
@@ -64,10 +138,127 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
+        body.light-mode a {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #0a0a0a;
+        }
         a:hover {
-            background: rgba(99, 102, 241, 0.2);
-            border-color: rgba(99, 102, 241, 0.4);
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
             transform: translateY(-2px);
+        }
+        body.light-mode a:hover {
+            background: rgba(59, 130, 246, 0.25);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        .phone-mockup {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 
+                0 20px 60px rgba(59, 130, 246, 0.3),
+                0 0 80px rgba(96, 165, 250, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        body.light-mode .phone-frame {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            box-shadow: 
+                0 20px 60px rgba(59, 130, 246, 0.2),
+                0 0 80px rgba(96, 165, 250, 0.15),
+                inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotateY(-5deg);
+            }
+            50% {
+                transform: translateY(-20px) rotateY(5deg);
+            }
+        }
+        .phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #0a0a0a;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+        body.light-mode .phone-notch {
+            background: #0a0a0a;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        body.light-mode .phone-screen {
+            background: #fff;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .screenshot-dark {
+            display: block;
+            z-index: 1;
+        }
+        .screenshot-light {
+            display: none;
+            z-index: 1;
+        }
+        body.light-mode .screenshot-dark {
+            display: none;
+        }
+        body.light-mode .screenshot-light {
+            display: block;
+        }
+        .glow-effect {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
         }
         @media (max-width: 768px) {
             h1 {
@@ -76,353 +267,72 @@
             p {
                 font-size: 16px;
             }
+            .phone-mockup {
+                width: 250px;
+                height: 500px;
+            }
+            .container {
+                gap: 40px;
+            }
         }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"></line>
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"></line>
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"></line>
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+    
     <div class="container">
-        <img src="assets/DarkLogo.jpg" alt="LiveVibe" class="logo">
-        <h1>LiveVibe</h1>
-        <p>Legal Documentation</p>
-        <div class="links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
+        <div class="content-section">
+            <img src="assets/DarkLogo.jpg" alt="LiveVibe" class="logo logo-dark">
+            <img src="assets/LightLogo.jpg" alt="LiveVibe" class="logo logo-light">
+            <h1>LiveVibe</h1>
+            <p>Legal Documentation</p>
+            <div class="links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+        
+        <div class="phone-mockup">
+            <div class="glow-effect"></div>
+            <div class="phone-frame">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                    <img src="assets/app-screenshot-main-dark.png" alt="LiveVibe App" class="screenshot-dark">
+                    <img src="assets/app-screenshot-main-light.png" alt="LiveVibe App" class="screenshot-light">
+                </div>
+            </div>
         </div>
     </div>
-</body>
-</html>
-    <section class="hero">
-        <div class="hero-bg">
-            <div class="hero-gradient"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    Discover. Connect. <span class="gradient-text">Vibe.</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Experience nightlife like never before. Find the hottest venues, connect with friends, and discover where the crowd is vibing in real-time. Join the beta on iOS.
-                </p>
-                <div class="hero-actions">
-                    <a href="https://testflight.apple.com/join/CAU3xkM6" target="_blank" class="btn-primary btn-large">
-                        <span>Download Beta (iOS)</span>
-                        <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
-                        </svg>
-                    </a>
-                    <button class="btn-secondary btn-large">
-                        <span>Coming Soon to Android</span>
-                        <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <img src="assets/app-screenshot-main-dark.png" alt="LiveVibe App Main Screen" class="app-screenshot app-screenshot-dark">
-                        <img src="assets/app-screenshot-main-light.png" alt="LiveVibe App Main Screen" class="app-screenshot app-screenshot-light">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="floating-elements">
-            <div class="float-element float-1"></div>
-            <div class="float-element float-2"></div>
-            <div class="float-element float-3"></div>
-        </div>
-    </section>
-
-    <!-- App Screenshots Gallery -->
-    <div class="section-wrapper">
-        <section id="screenshots" class="screenshots-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">See LiveVibe in Action</h2>
-                    <p class="section-subtitle">Discover how easy it is to find the perfect venue and connect with your friends</p>
-                </div>
-                <div class="screenshots-gallery">
-                <div class="screenshot-item">
-                    <div class="screenshot-container">
-                        <img src="assets/screenshot-map-dark.png" alt="LiveVibe Map View" class="screenshot-img screenshot-img-dark">
-                        <img src="assets/screenshot-map-light.png" alt="LiveVibe Map View" class="screenshot-img screenshot-img-light">
-                    </div>
-                    <h3>Interactive Map</h3>
-                    <p>Find nearby venues with real-time crowd data and heat scores</p>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-container">
-                        <img src="assets/screenshot-feed-dark.png" alt="LiveVibe Social Feed" class="screenshot-img screenshot-img-dark">
-                        <img src="assets/screenshot-feed-light.png" alt="LiveVibe Social Feed" class="screenshot-img screenshot-img-light">
-                    </div>
-                    <h3>Social Feed</h3>
-                    <p>See where your friends are and discover trending venues in your area</p>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-container">
-                        <img src="assets/screenshot-venue-dark.png" alt="LiveVibe Venue Details" class="screenshot-img screenshot-img-dark">
-                        <img src="assets/screenshot-venue-light.png" alt="LiveVibe Venue Details" class="screenshot-img screenshot-img-light">
-                    </div>
-                    <h3>Venue Details</h3>
-                    <p>Get comprehensive venue information, reviews, and live crowd status</p>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-container">
-                        <img src="assets/screenshot-chat-dark.png" alt="LiveVibe Messaging" class="screenshot-img screenshot-img-dark">
-                        <img src="assets/screenshot-chat-light.png" alt="LiveVibe Messaging" class="screenshot-img screenshot-img-light">
-                    </div>
-                    <h3>Connect & Chat</h3>
-                    <p>Message friends and coordinate meetups directly within the app</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Choose LiveVibe?</h2>
-                <p class="section-subtitle">Experience the future of nightlife discovery</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
-                        </svg>
-                    </div>
-                    <h3>Real-Time Crowd Data</h3>
-                    <p>See live headcounts and heat scores for every venue. Never show up to an empty bar again.</p>
-                </div>
-                <div class="feature-card glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L14 2V4H10V2L9 1L3 7V9H5V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V9H21Z"/>
-                        </svg>
-                    </div>
-                    <h3>Social Discovery</h3>
-                    <p>Connect with friends and discover new people at your favorite venues. Build your nightlife network.</p>
-                </div>
-                <div class="feature-card glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 8C9.79 8 8 9.79 8 12S9.79 16 12 16 16 14.21 16 12 14.21 8 12 8ZM20.94 11C20.48 6.83 17.17 3.52 13 3.06V1H11V3.06C6.83 3.52 3.52 6.83 3.06 11H1V13H3.06C3.52 17.17 6.83 20.48 11 20.94V23H13V20.94C17.17 20.48 20.48 17.17 20.94 13H23V11H20.94ZM12 19C8.13 19 5 15.87 5 12S8.13 5 12 5 19 8.13 19 12 15.87 19 12 19Z"/>
-                        </svg>
-                    </div>
-                    <h3>Smart Recommendations</h3>
-                    <p>AI-powered suggestions based on your preferences, location, and what's trending in your area.</p>
-                </div>
-                <div class="feature-card glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L13.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
-                        </svg>
-                    </div>
-                    <h3>Verified Venues</h3>
-                    <p>All venues are verified with accurate information, reviews, and real-time updates from business owners.</p>
-                </div>
-                <div class="feature-card glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
-                        </svg>
-                    </div>
-                    <h3>Instant Notifications</h3>
-                    <p>Get notified when your friends are out, when venues are getting busy, or when events are happening.</p>
-                </div>
-                <div class="feature-card glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
-                        </svg>
-                    </div>
-                    <h3>Safety First</h3>
-                    <p>Built-in safety features including location sharing, check-ins, and emergency contacts for peace of mind.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Map Demo -->
-    <section class="map-demo">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Live Venue Discovery</h2>
-                <p class="section-subtitle">See what's happening around you in real-time</p>
-            </div>
-            <div class="map-container">
-                <div class="fake-map">
-                    <div class="map-venue" data-venue="1">
-                        <div class="venue-marker hot">
-                            <span class="venue-count">124</span>
-                        </div>
-                        <div class="venue-popup">
-                            <h4>The Edison</h4>
-                            <p>Nightclub • Very Busy</p>
-                            <div class="venue-stats">
-                                <span class="stat">85% Full</span>
-                                <span class="stat">$$$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="map-venue" data-venue="2">
-                        <div class="venue-marker warm">
-                            <span class="venue-count">67</span>
-                        </div>
-                        <div class="venue-popup">
-                            <h4>Perch LA</h4>
-                            <p>Rooftop Bar • Moderate</p>
-                            <div class="venue-stats">
-                                <span class="stat">60% Full</span>
-                                <span class="stat">$$$$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="map-venue" data-venue="3">
-                        <div class="venue-marker cool">
-                            <span class="venue-count">32</span>
-                        </div>
-                        <div class="venue-popup">
-                            <h4>Seven Grand</h4>
-                            <p>Whiskey Bar • Chill</p>
-                            <div class="venue-stats">
-                                <span class="stat">35% Full</span>
-                                <span class="stat">$$$</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Business Solutions -->
-    <section id="venues" class="business-section">
-        <div class="container">
-            <div class="business-content">
-                <div class="business-text">
-                    <h2>For Venue Owners</h2>
-                    <p class="lead">Attract more customers and optimize your venue operations with LiveVibe Business.</p>
-                    <ul class="business-features">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                            </svg>
-                            Real-time analytics and crowd insights
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                            </svg>
-                            Promotional tools and event management
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                            </svg>
-                            Customer engagement and loyalty programs
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                            </svg>
-                            Revenue optimization insights
-                        </li>
-                    </ul>
-                    <button class="btn-primary">Learn More</button>
-                </div>
-                <div class="business-visual">
-                    <div class="dashboard-mockup">
-                        <div class="dashboard-screenshot-container">
-                            <img src="assets/business-dashboard-dark.png" alt="LiveVibe Business Dashboard" class="dashboard-screenshot dashboard-screenshot-dark">
-                            <img src="assets/business-dashboard-light.png" alt="LiveVibe Business Dashboard" class="dashboard-screenshot dashboard-screenshot-light">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Elevate Your Nightlife?</h2>
-                <p>Join thousands of users already discovering the best venues in their city.</p>
-                <div class="cta-actions">
-                    <a href="https://testflight.apple.com/join/CAU3xkM6" target="_blank" class="btn-primary btn-large">Download Beta (iOS)</a>
-                    <button class="btn-secondary btn-large">Watch Demo</button>
-                </div>
-                <div class="app-store-badges">
-                    <img src="assets/app-store-badge.svg" alt="Download on the App Store">
-                    <div class="coming-soon-badge">
-                        <span>Android Version Coming Soon</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <img src="assets/LightLogo.jpg" alt="LiveVibe" class="footer-logo footer-logo-light">
-                        <img src="assets/DarkLogo.jpg" alt="LiveVibe" class="footer-logo footer-logo-dark">
-                        <p>Discover. Connect. Vibe.</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.749-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Product</h4>
-                        <a href="#">Features</a>
-                        <a href="#">How it Works</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">Download</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Business</h4>
-                        <a href="#">For Venues</a>
-                        <a href="#">Analytics</a>
-                        <a href="#">API</a>
-                        <a href="#">Enterprise</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Support</h4>
-                        <a href="#">Help Center</a>
-                        <a href="#">Contact</a>
-                        <a href="privacy.html">Privacy</a>
-                        <a href="terms.html">Terms</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 LiveVibe LLC. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        }
+        
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            }
+        });
+    </script>
 </body>
 </html>

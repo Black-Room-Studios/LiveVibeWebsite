@@ -16,41 +16,118 @@
             background: #0a0a0a;
             color: #ffffff;
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        body.light-mode {
+            background: #ffffff;
+            color: #0a0a0a;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        .theme-toggle:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: scale(1.1);
+        }
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
+            transition: opacity 0.3s ease;
+        }
+        body.light-mode .theme-toggle svg {
+            fill: #0a0a0a;
+        }
+        .sun-icon {
+            display: none;
+        }
+        .moon-icon {
+            display: block;
+        }
+        body.light-mode .sun-icon {
+            display: block;
+        }
+        body.light-mode .moon-icon {
+            display: none;
         }
         .nav-bar {
             position: sticky;
             top: 0;
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 16px 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 20px 0;
             z-index: 1000;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        body.light-mode .nav-bar {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
         .nav-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
             gap: 16px;
+        }
+        .nav-left {
+            justify-self: start;
+        }
+        .nav-right {
+            justify-self: end;
+        }
+        .nav-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            transition: color 0.3s ease;
+            text-align: center;
+        }
+        body.light-mode .nav-title {
+            color: #0a0a0a;
         }
         .nav-link {
             color: #ffffff;
             text-decoration: none;
             padding: 8px 16px;
             border-radius: 8px;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             font-size: 14px;
             font-weight: 500;
             transition: all 0.3s ease;
             white-space: nowrap;
         }
+        body.light-mode .nav-link {
+            color: #0a0a0a;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
         .nav-link:hover {
-            background: rgba(99, 102, 241, 0.2);
-            border-color: rgba(99, 102, 241, 0.4);
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
             transform: translateY(-1px);
+        }
+        body.light-mode .nav-link:hover {
+            background: rgba(59, 130, 246, 0.25);
+            border-color: rgba(59, 130, 246, 0.5);
         }
         .legal-container {
             max-width: 900px;
@@ -98,23 +175,48 @@
         .legal-content a {
             color: #6366f1;
             text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        body.light-mode .legal-content a {
+            color: #3b82f6;
         }
         .legal-content strong {
             font-weight: 600;
         }
         .contact-box {
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             border-radius: 12px;
             padding: 24px;
             margin: 32px 0;
+            transition: background-color 0.3s ease;
+        }
+        body.light-mode .contact-box {
+            background: rgba(59, 130, 246, 0.15);
         }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"></line>
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"></line>
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"></line>
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
     <nav class="nav-bar">
         <div class="nav-container">
-            <a href="index.html" class="nav-link">← Home</a>
-            <a href="terms.html" class="nav-link">Terms of Service</a>
+            <a href="index.html" class="nav-link nav-left">← Home</a>
+            <div class="nav-title">LiveVibe</div>
+            <a href="terms.html" class="nav-link nav-right">Terms of Service</a>
         </div>
     </nav>
     <div class="legal-container">
@@ -333,5 +435,21 @@
             </p>
         </div>
     </div>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        }
+        
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            }
+        });
+    </script>
 </body>
 </html>
