@@ -70,14 +70,21 @@
             top: 0;
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             padding: 20px 0;
             z-index: 1000;
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         body.light-mode .nav-bar {
             background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .nav-bar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 1px;
+            background: rgba(59, 130, 246, 0.2);
         }
         .nav-container {
             max-width: 900px;
@@ -257,7 +264,7 @@
         }
         @media (max-width: 768px) {
             .theme-toggle {
-                top: 80px;
+                top: 92px;
                 right: 12px;
                 width: 44px;
                 height: 44px;
@@ -268,6 +275,10 @@
             }
             .nav-bar {
                 padding: 16px 0;
+            }
+            .nav-bar::after {
+                left: 12px;
+                right: 12px;
             }
             .nav-container {
                 padding: 0 12px;
@@ -357,6 +368,10 @@
         
         /* Small phones */
         @media (max-width: 375px) {
+            .nav-bar::after {
+                left: 8px;
+                right: 8px;
+            }
             .nav-container {
                 padding: 0 8px;
                 gap: 6px;
