@@ -205,6 +205,131 @@
         body.light-mode .warning-box {
             background: rgba(239, 68, 68, 0.08);
         }
+        @media (max-width: 768px) {
+            .theme-toggle {
+                top: 12px;
+                right: 12px;
+                width: 44px;
+                height: 44px;
+            }
+            .theme-toggle svg {
+                width: 20px;
+                height: 20px;
+            }
+            .nav-container {
+                padding: 0 12px;
+                grid-template-columns: auto 1fr auto;
+                gap: 8px;
+            }
+            .nav-title {
+                font-size: 16px;
+            }
+            .nav-link {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            .legal-container {
+                padding: 40px 16px;
+            }
+            .legal-header {
+                margin-bottom: 40px;
+            }
+            .legal-header h1 {
+                font-size: 32px;
+            }
+            .legal-header p {
+                font-size: 16px;
+            }
+            .legal-content h2 {
+                font-size: 24px;
+                margin-top: 36px;
+                margin-bottom: 20px;
+            }
+            .legal-content h3 {
+                font-size: 20px;
+                margin-top: 24px;
+                margin-bottom: 12px;
+            }
+            .legal-content p,
+            .legal-content li {
+                font-size: 15px;
+            }
+            .contact-box,
+            .warning-box {
+                padding: 16px;
+                margin: 24px 0;
+            }
+            ul, ol {
+                padding-left: 24px;
+            }
+        }
+        
+        /* Tablet optimization (iPad portrait and landscape) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .legal-container {
+                max-width: 750px;
+                padding: 50px 32px;
+            }
+            .legal-header h1 {
+                font-size: 42px;
+            }
+            .legal-content h2 {
+                font-size: 28px;
+            }
+            .legal-content h3 {
+                font-size: 22px;
+            }
+        }
+        
+        /* Small phones */
+        @media (max-width: 375px) {
+            .nav-container {
+                padding: 0 8px;
+                gap: 6px;
+            }
+            .nav-title {
+                font-size: 14px;
+            }
+            .nav-link {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            .legal-container {
+                padding: 32px 12px;
+            }
+            .legal-header h1 {
+                font-size: 28px;
+            }
+            .legal-header p {
+                font-size: 15px;
+            }
+            .legal-content h2 {
+                font-size: 22px;
+            }
+            .legal-content h3 {
+                font-size: 18px;
+            }
+            .legal-content p,
+            .legal-content li {
+                font-size: 14px;
+            }
+            .contact-box,
+            .warning-box {
+                padding: 12px;
+            }
+            ul, ol {
+                padding-left: 20px;
+            }
+        }
+        
+        /* Improve touch targets for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-link,
+            .theme-toggle {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
     </style>
 </head>
 <body>
