@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - LiveVibe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/LightLogo.jpg" type="image/jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        body.light-mode {
+            background: #ffffff;
+            color: #0a0a0a;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .theme-toggle:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: scale(1.1);
+        }
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
+            transition: opacity 0.3s ease;
+        }
+        body.light-mode .theme-toggle svg {
+            fill: #0a0a0a;
+        }
+        .sun-icon {
+            display: none;
+        }
+        .moon-icon {
+            display: block;
+        }
+        body.light-mode .sun-icon {
+            display: block;
+        }
+        body.light-mode .moon-icon {
+            display: none;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(59, 130, 246, 0.8);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 32px;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            color: rgba(59, 130, 246, 1);
+            transform: translateX(-4px);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            border-radius: 16px;
+            transition: opacity 0.3s ease, box-shadow 0.3s ease;
+        }
+        body.light-mode .logo {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .logo-dark {
+            display: block;
+        }
+        .logo-light {
+            display: none;
+        }
+        body.light-mode .logo-dark {
+            display: none;
+        }
+        body.light-mode .logo-light {
+            display: block;
+        }
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        body.light-mode h1 {
+            color: #1a1a1a;
+        }
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.7;
+        }
+        body.light-mode .subtitle {
+            opacity: 0.6;
+        }
+        .section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        body.light-mode .section {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: rgba(59, 130, 246, 0.15);
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        body.light-mode h2 {
+            color: #1a1a1a;
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: rgba(59, 130, 246, 0.9);
+        }
+        body.light-mode h3 {
+            color: rgba(59, 130, 246, 1);
+        }
+        p, li {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+        body.light-mode p, body.light-mode li {
+            opacity: 0.7;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            padding-left: 24px;
+            position: relative;
+        }
+        li:before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: rgba(59, 130, 246, 0.8);
+            font-weight: bold;
+        }
+        .contact-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 16px;
+        }
+        body.light-mode .contact-box {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .contact-method:last-child {
+            margin-bottom: 0;
+        }
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        body.light-mode .contact-icon {
+            background: rgba(59, 130, 246, 0.25);
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-label {
+            font-size: 14px;
+            opacity: 0.6;
+            margin-bottom: 4px;
+        }
+        .contact-value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .contact-value a {
+            color: rgba(59, 130, 246, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        body.light-mode .contact-value a {
+            color: rgba(59, 130, 246, 1);
+        }
+        .contact-value a:hover {
+            color: rgba(96, 165, 250, 1);
+            text-decoration: underline;
+        }
+        .faq-item {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-question {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        body.light-mode .faq-question {
+            color: #1a1a1a;
+        }
+        .faq-answer {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+        body.light-mode .faq-answer {
+            opacity: 0.7;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            .section {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"></line>
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"></line>
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"></line>
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+    
+    <div class="container">
+        <a href="index.html" class="back-button">
+            ← Back to Home
+        </a>
+        
+        <div class="header">
+            <img src="assets/DarkLogo.jpg" alt="LiveVibe" class="logo logo-dark">
+            <img src="assets/LightLogo.jpg" alt="LiveVibe" class="logo logo-light">
+            <h1>Support Center</h1>
+            <p class="subtitle">We're here to help you get the most out of LiveVibe</p>
+        </div>
+
+        <div class="section">
+            <h2>Contact Us</h2>
+            <p>Have a question or need assistance? Reach out to our support team through any of the following methods:</p>
+            
+            <div class="contact-box">
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">Email Support</div>
+                        <div class="contact-value">
+                            <a href="mailto:support@live-vibe.app">support@live-vibe.app</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">Response Time</div>
+                        <div class="contact-value">Within 24-48 hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I create an account?</div>
+                <div class="faq-answer">Download the LiveVibe app from the App Store, open it, and follow the on-screen instructions to sign up using your phone number or email address.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I reset my password?</div>
+                <div class="faq-answer">If you've forgotten your password, tap "Forgot Password?" on the login screen. You'll receive a password reset link via email or SMS.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I delete my account?</div>
+                <div class="faq-answer">To delete your account, go to Settings > Account > Delete Account. Please note that this action is permanent and cannot be undone.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I report inappropriate content or users?</div>
+                <div class="faq-answer">Tap the three dots (•••) on any post or profile, then select "Report." Choose the appropriate reason and submit. Our team will review all reports within 24 hours.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why can't I see certain posts or profiles?</div>
+                <div class="faq-answer">This could be due to privacy settings, location-based filtering, or if a user has blocked you. Check your app settings and ensure location services are enabled.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I update my profile information?</div>
+                <div class="faq-answer">Go to your profile by tapping your profile picture, then tap "Edit Profile." You can update your photos, bio, and other information from there.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What should I do if the app crashes or won't load?</div>
+                <div class="faq-answer">Try force-closing the app and reopening it. If the issue persists, check for app updates in the App Store. If problems continue, contact our support team at support@live-vibe.app.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I manage my privacy settings?</div>
+                <div class="faq-answer">Navigate to Settings > Privacy to control who can see your posts, profile information, and location. You can also block specific users from this menu.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does location sharing work?</div>
+                <div class="faq-answer">LiveVibe uses your location to show you nearby events and users. You can control location permissions in your device settings and adjust visibility in the app's privacy settings.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use LiveVibe on multiple devices?</div>
+                <div class="faq-answer">Yes, you can log into your account on multiple devices. Your data will sync across all devices where you're logged in.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Common Issues & Solutions</h2>
+            
+            <h3>App Performance</h3>
+            <ul>
+                <li>Clear app cache by going to Settings > Clear Cache</li>
+                <li>Ensure you have the latest version of the app</li>
+                <li>Check your internet connection</li>
+                <li>Restart your device if issues persist</li>
+            </ul>
+
+            <h3>Notifications</h3>
+            <ul>
+                <li>Verify notification permissions in device Settings > Notifications > LiveVibe</li>
+                <li>Check in-app notification settings in Settings > Notifications</li>
+                <li>Ensure Do Not Disturb mode is disabled on your device</li>
+            </ul>
+
+            <h3>Photo Upload Issues</h3>
+            <ul>
+                <li>Check that LiveVibe has photo access permissions</li>
+                <li>Ensure photos are not too large (max 10MB per photo)</li>
+                <li>Try uploading from a different source (camera vs. photo library)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Additional Resources</h2>
+            <ul>
+                <li><a href="privacy.html" style="color: rgba(59, 130, 246, 0.9);">Privacy Policy</a> - Learn how we protect your data</li>
+                <li><a href="terms.html" style="color: rgba(59, 130, 246, 0.9);">Terms of Service</a> - Review our terms and conditions</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Still Need Help?</h2>
+            <p>If you couldn't find the answer to your question, please don't hesitate to contact our support team. We're committed to providing you with the best experience possible.</p>
+            <p style="margin-top: 16px;">Email us at <a href="mailto:support@live-vibe.app" style="color: rgba(59, 130, 246, 0.9); text-decoration: none; font-weight: 600;">support@live-vibe.app</a> with:</p>
+            <ul style="margin-top: 12px;">
+                <li>A detailed description of your issue</li>
+                <li>Screenshots (if applicable)</li>
+                <li>Your device model and iOS version</li>
+                <li>App version number (found in Settings > About)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        }
+        
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            }
+        });
+    </script>
+</body>
+</html>
