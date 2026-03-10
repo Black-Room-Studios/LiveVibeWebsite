@@ -383,7 +383,7 @@
 
             <h3>1.2 Information Collected Automatically</h3>
             <ul>
-                <li><strong>Location Data:</strong> We collect precise location data (GPS coordinates) when you use the App, including when it's running in the background. This is essential for providing real-time venue crowd data and personalized recommendations. You can control location permissions through your device settings.</li>
+                <li><strong>Location Data:</strong> We collect precise location data (GPS coordinates) periodically in the background when you use the App, including when it is running in the background. This is essential for providing real-time venue crowd data and personalized recommendations. You can control location permissions through your device settings.</li>
                 <li><strong>Device Information:</strong> Device type, operating system, unique device identifiers, push notification tokens, mobile network information, and IP address.</li>
                 <li><strong>Usage Data:</strong> How you interact with the App, including features used, content viewed, search queries, and time spent in the App.</li>
                 <li><strong>Camera and Photos:</strong> With your permission, we access your camera and photo library to allow you to upload profile pictures and content.</li>
@@ -483,16 +483,15 @@
             <h3>4.4 Data Rights</h3>
             <p>Depending on your location, you may have the following rights:</p>
             <ul>
-                <li><strong>Access:</strong> Request a copy of your personal information.</li>
+                <li><strong>Access &amp; Export:</strong> Request a copy of your personal information in a portable format by emailing <a href="mailto:legal@live-vibe.app">legal@live-vibe.app</a>. We will respond within 45 days.</li>
                 <li><strong>Correction:</strong> Update or correct inaccurate information.</li>
                 <li><strong>Deletion:</strong> Request deletion of your account and personal data.</li>
-                <li><strong>Portability:</strong> Receive your data in a machine-readable format.</li>
                 <li><strong>Objection:</strong> Object to certain processing of your data.</li>
                 <li><strong>Restriction:</strong> Request restriction of processing in certain circumstances.</li>
                 <li><strong>Limit Sensitive Data Use:</strong> (California/CPRA residents) Request that we limit our use and disclosure of your sensitive personal information.</li>
             </ul>
 
-            <p>To exercise these rights, contact us at <a href="mailto:legal@live-vibe.app">legal@live-vibe.app</a>.</p>
+            <p>To exercise these rights, contact us at <a href="mailto:legal@live-vibe.app">legal@live-vibe.app</a>. We will respond within 45 days.</p>
 
             <h2>5. On-Device Storage</h2>
 
@@ -506,21 +505,27 @@
 
             <h2>6. Data Retention</h2>
 
-            <p>We retain your information for as long as your account is active or as needed to provide services. When you delete your account:</p>
+            <p>We retain your information for as long as your account is active or as needed to provide services. Specific retention periods:</p>
             <ul>
-                <li>Your profile and personal data will be deleted within 30 days.</li>
-                <li>Some information may be retained for legal compliance, fraud prevention, or legitimate business purposes.</li>
-                <li>Anonymized or aggregated data may be retained indefinitely.</li>
+                <li>Account data: Until you delete your account.</li>
+                <li>Stories: Auto-expire and are permanently deleted 24 hours after posting.</li>
+                <li>Messages: Automatically deleted 24 hours after being viewed.</li>
+                <li>Location data: Retained for no more than 30 days.</li>
+                <li>Notifications: Automatically cleaned up after 7 days.</li>
+                <li>App usage analytics: Up to 2 years for service improvements.</li>
+                <li>Legal compliance data: As required by applicable law.</li>
             </ul>
+            <p>When you delete your account, your profile and personal data will be deleted within 30 days. Anonymized or aggregated data may be retained indefinitely.</p>
 
             <h2>7. Data Security</h2>
 
             <p>We implement appropriate technical and organizational measures to protect your information, including:</p>
             <ul>
-                <li>Encryption of data in transit and at rest.</li>
+                <li>HTTPS/TLS encryption for all data in transit.</li>
+                <li>Secure cloud infrastructure (Supabase) with row-level security policies.</li>
+                <li>Messages stored securely at rest and automatically deleted after 24 hours.</li>
                 <li>Regular security assessments and monitoring.</li>
                 <li>Access controls and authentication requirements.</li>
-                <li>Employee training on data protection.</li>
             </ul>
 
             <p>However, no system is completely secure. We cannot guarantee absolute security of your data.</p>
@@ -531,7 +536,9 @@
 
             <h2>9. International Data Transfers</h2>
 
-            <p>Your information may be transferred to and processed in countries other than your country of residence. These countries may have different data protection laws. By using LiveVibe, you consent to the transfer of your information to the United States and other countries where we operate.</p>
+            <p>LiveVibe is operated in the United States and is intended for users in the United States. Your information is transferred to and processed in the United States. U.S. privacy laws may differ from those in your country.</p>
+
+            <p><strong>EU/EEA Users:</strong> LiveVibe is not currently directed at users in the European Union or European Economic Area. If you are an EU/EEA resident, please do not use the Services, as we do not currently have the infrastructure to comply with GDPR obligations.</p>
 
             <h2>10. California Privacy Rights (CCPA/CPRA)</h2>
 
@@ -540,27 +547,21 @@
                 <li><strong>Right to Know:</strong> Right to know what personal information we collect, use, disclose, and share.</li>
                 <li><strong>Right to Delete:</strong> Right to request deletion of your personal information, subject to certain exceptions.</li>
                 <li><strong>Right to Correct:</strong> Right to request correction of inaccurate personal information we maintain about you.</li>
-                <li><strong>Right to Opt-Out of Sale or Sharing:</strong> Right to opt-out of the sale or sharing of your personal information for cross-context behavioral advertising (we do not sell or share your information for advertising).</li>
-                <li><strong>Right to Limit Use of Sensitive Personal Information:</strong> We collect certain sensitive personal information (date of birth, gender) which is used only to provide the Services and for anonymized business analytics. You may contact us to limit use of your sensitive personal information.</li>
+                <li><strong>Right to Access &amp; Export:</strong> Right to request a copy of your personal information in a portable format. We will respond within 45 days (extendable to 90 days with notice).</li>
+                <li><strong>Right to Opt-Out of Sale or Sharing:</strong> Right to opt-out of the sale or sharing of your personal information. We do not sell or share your personal information for advertising purposes.</li>
+                <li><strong>Right to Limit Use of Sensitive Personal Information:</strong> We collect sensitive personal information (precise geolocation, date of birth, gender) used only to provide the Services and for anonymized business analytics. You may contact us to limit this use.</li>
                 <li><strong>Right to Non-Discrimination:</strong> Right to not receive discriminatory treatment for exercising your privacy rights.</li>
             </ul>
 
-            <p><strong>Sensitive Personal Information:</strong> Under CPRA, the following data we collect is considered sensitive personal information: (a) precise geolocation data; (b) date of birth (used to derive age); and (c) gender. This data is used solely to provide and improve our Services and for anonymized aggregate analytics provided to venue partners. We do not use sensitive personal information to infer characteristics about you beyond what is necessary to provide the Services.</p>
+            <p><strong>Sensitive Personal Information (CPRA):</strong> The following data we collect is considered sensitive personal information: (a) precise geolocation data; (b) date of birth (used to derive age); and (c) gender. This data is used solely to provide and improve our Services and for anonymized aggregate analytics provided to venue partners.</p>
 
-            <p><strong>California "Shine the Light" (Cal. Civ. Code § 1798.83):</strong> California residents may request information about disclosures of personal information to third parties for direct marketing purposes. LiveVibe does not disclose personal information to third parties for direct marketing purposes.</p>
+            <p><strong>California "Shine the Light" (Cal. Civ. Code § 1798.83):</strong> LiveVibe does not disclose personal information to third parties for direct marketing purposes.</p>
 
-            <p>To exercise these rights, email us at <a href="mailto:legal@live-vibe.app">legal@live-vibe.app</a>. We will respond within 45 days (extendable to 90 days).</p>
+            <p>To exercise these rights, email us at <a href="mailto:legal@live-vibe.app">legal@live-vibe.app</a>. We will respond within 45 days.</p>
 
-            <h2>11. European Privacy Rights (GDPR)</h2>
+            <h2>11. European Privacy Rights</h2>
 
-            <p>If you are in the European Economic Area (EEA) or United Kingdom, you have rights under the General Data Protection Regulation (GDPR) or UK GDPR, including the rights listed in Section 4.4 above. Our legal basis for processing your data includes:</p>
-            <ul>
-                <li><strong>Consent:</strong> You have given clear consent for specific purposes (e.g., background location tracking).</li>
-                <li><strong>Contract:</strong> Processing is necessary to fulfill our contract with you (providing the Services).</li>
-                <li><strong>Legal Obligation:</strong> Processing is necessary to comply with the law.</li>
-                <li><strong>Legitimate Interests:</strong> Processing is necessary for our legitimate business interests (e.g., security, fraud prevention, improving our Services), provided these are not overridden by your rights.</li>
-            </ul>
-            <p>You have the right to lodge a complaint with your local supervisory authority. To exercise your GDPR rights, contact us at <a href="mailto:legal@live-vibe.app">legal@live-vibe.app</a>.</p>
+            <p>LiveVibe is not currently directed at users in the European Union or European Economic Area (EEA). If you are an EU/EEA resident, please do not use the Services. We do not currently have the infrastructure to fulfill GDPR obligations (e.g., Data Processing Agreements, Standard Contractual Clauses, or an EU representative).</p>
 
             <h2>12. Third-Party Services</h2>
 
